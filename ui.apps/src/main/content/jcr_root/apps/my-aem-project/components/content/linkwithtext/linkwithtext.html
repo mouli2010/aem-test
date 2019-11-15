@@ -1,0 +1,14 @@
+<sly data-sly-use.model="com.aem.training.models.LinkWithText"/>
+<div class="footer">
+				<div>
+					<ul>
+                    <sly data-sly-list="${model.navigationItems}">
+						<li>
+							<a href="${item.link @extension='html'}" class="product"></a>
+							<h1>${item.title}</h1>
+						</li>
+                        </sly>
+
+					</ul>
+				</div>
+			</div>

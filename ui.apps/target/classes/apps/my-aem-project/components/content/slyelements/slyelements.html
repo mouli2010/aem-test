@@ -1,0 +1,116 @@
+<!--The data-sly-text attribute will replace the val­ue of the HTML-ele­ment with the expres­sion pro­vid­ed.
+
+In the exam­ple above the page-title will be print­ed. But the mock val­ue can still be in there to make it eas­i­er to view the file in HTML-edi­tors.-->
+
+
+<div data-sly-text="${currentPage.title}">Mock page title</div>
+
+<!--data-sly-list -->
+<ul data-sly-list.child="${currentPage.listChildren}">
+    <li>${child.title}</li>
+</ul>
+<ul>
+<li data-sly-repeat="${currentPage.listChildren}">${item.name}</li>
+</ul>
+
+<ul data-sly-list.child="${currentPage.listChildren}">
+    <li class="${ childList.odd ? 'odd' : 'even'}">${child.title}</li>
+</ul>
+
+<button  type="button" onclick="getId()"> click</button>
+
+<p id="two"   style="background-color:DodgerBlue;">ID=one</p>
+<p id="two" style="background-color:pink;" data-sly-attribute.id="one">ID=two</p>
+
+
+<h1 data-sly-element="${'h6'}">text</h1>
+<div data-sly-element="${'h1'}">Blah</div>
+
+<template data-sly-template.one>rajamouli</template>
+<h1 data-sly-call="${one}"></h1>
+
+
+<template data-sly-template.two="${@ title, resource='The resource of the parent node'}"> <!--/* Notice the usage hint on the resource parameter. */-->
+    <h1>${title}</h1>
+    <p>Parent: ${resource.name}</p>
+</template>
+<div data-sly-call="${two @ title=properties.jcr:title, resource=resource.parent}"></div>
+
+
+<tag>Some text ${myText}</tag>
+<tag attr="Some text ${myAttrValue}"></tag>
+<tag href="${myHrefValue}"></tag>
+
+
+<div data-sly-test="${wcmmode.edit}">Show this only in edit mode to the author</div>
+
+<div data-sly-test.author="${wcmmode.edit || wcmmode.design}">
+     this is author
+</div>
+<div data-sly-test="${!author}">
+    Not in author mode anymore..
+</div>
+<div data-sly-test="${pageProperties.jcr:title == 'Homepage'}">TEST</div>
+<div data-sly-test="${properties.jcr:title != 'test'}">NOT TEST</div>
+
+<div data-sly-test="${pageProperties['jcr:title'].length > 3}">Title is longer than 3</div>
+<div data-sly-test="${pageProperties['jcr:title'].length >= 0}">Title is longer or equal to zero </div> 
+
+<h2>${ 'dd-MMMM-yyyy hh:mm:ss' @
+           format=currentPage.lastModified,
+           timezone='PST',
+           locale='fr'}</h2>
+
+<h2>${ '#.00' @ format=300}</h2>
+
+Code in HTLfor iterating the HashMap
+
+<sly data-sly-use.model="com.aem.training.models.Mapiterator">
+    <ul data-sly-list.key="${model.map}">
+         <li> KEY: ${key}, VALUE: ${model.map[key]}</li>
+    </ul>
+</sly>
+
+
+<div data-sly-use.hashmap="com.aem.training.models.Mapofmap"
+     data-sly-list="${hashmap.map.keySet.iterator}">
+     ${item}
+     <ul data-sly-list.aem="${hashmap.map[item].keySet.iterator}">
+         <li>${aem} ${hashmap.map[item][aem]}</li>
+     </ul>
+</div>
+
+
+
+
+Code in HTL for iterating the List of HashMap :-
+<sly data-sly-use.model2="com.aem.training.models.Mapoflistiterator">
+<ul data-sly-list.keyName="${model2.map}">
+        <ul data-sly-list.key="${model2.map[keyName]}">
+         <li> ${key.productTitle}</li>        
+       </ul>
+</ul>
+</sly>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

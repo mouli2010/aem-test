@@ -1,0 +1,13 @@
+<sly data-sly-use.model="com.aem.training.models.ImageLink"/>
+<div class="header">
+    <img src="${model.fileReference}" alt="">
+				<div>
+    <a href="${model.linkURL @extension='html'}">${model.linkTitle} ${model.message }</a>
+				</div>
+			</div>
+
+<sly data-sly-use.Servicemodel="com.aem.training.services.TestService"/>
+${Servicemodel.message}
+
+Page : ${currentPage.title} ${pageProperties.jcr:description} ${wcmmode}
+       ${currentPage.path}

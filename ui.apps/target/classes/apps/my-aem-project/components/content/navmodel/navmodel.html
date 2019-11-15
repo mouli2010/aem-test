@@ -1,0 +1,64 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <sly data-sly-use.model="com.aem.training.models.Navmodel"/>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <!-- Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle"  href="${model.homeURL @extension='html'}" id="navbardrop" data-toggle="dropdown"> 
+		HOME
+      </a>
+
+      <div class="dropdown-menu">
+      <sly data-sly-list="${model.homeitems}">
+      <div class="selected">
+        <a class="dropdown-item" href="${item.getPath}">${item.getTitle}</a>
+					</div>
+					</sly>
+      </div>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle"  href="${model.productitems @extension='html'}" id="navbardrop" data-toggle="dropdown"> 
+		PRODUCTS
+      </a>
+
+      <div class="dropdown-menu">
+      <sly data-sly-list="${model.productitems}">
+      <div class="selected">
+        <a class="dropdown-item" href="${item.getPath}">${item.getTitle}</a>
+					</div>
+					</sly>
+      </div>
+    </li>
+     <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle"  href="${model.blogitems @extension='html'}" id="navbardrop" data-toggle="dropdown"> 
+		BLOG
+      </a>
+
+      <div class="dropdown-menu">
+      <sly data-sly-list="${model.blogitems}">
+      <div class="selected">
+        <a class="dropdown-item" href="${item.getPath}">${item.getTitle}</a>
+					</div>
+					</sly>
+      </div>
+    </li>
+     <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle"  href="${model.aboutitems @extension='html'}" id="navbardrop" data-toggle="dropdown"> 
+		ABOUT
+      </a>
+
+      <div class="dropdown-menu">
+      <sly data-sly-list="${model.aboutitems}">
+      <div class="selected">
+        <a class="dropdown-item" href="${item.getPath}">${item.getTitle}</a>
+					</div>
+					</sly>
+      </div>
+    </li>
+    
+  </ul>
+</nav>
+

@@ -1,0 +1,12 @@
+
+<sly data-sly-use.model="com.aem.training.models.Navigation"/>
+
+				<a href="index.html" class="logo"><img src="${properties.fileReference}" alt=""></a>
+				<ul id="navigation">
+				<sly data-sly-list="${model.navigationItems}">
+					<li class="selected">
+						<a href="${item.link @extension='html'}">${item.title}</a>
+					</li>
+					</sly>
+				</ul>
+

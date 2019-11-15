@@ -1,0 +1,17 @@
+ <sly data-sly-use.model="com.aem.training.models.StudentList"/>
+ <table>
+ <tr>
+  <th> Student Name</th>
+  <th>Department</th>
+  <th>Date of joining</th>
+ </tr>
+ <sly data-sly-list="${model.studentListItems}">
+ <tr>
+  <td>${item.name}</td>
+  <td>${item.department}</td>
+  <td>${item.doj}</td>
+ </tr>
+ </sly>
+</table>
+
+

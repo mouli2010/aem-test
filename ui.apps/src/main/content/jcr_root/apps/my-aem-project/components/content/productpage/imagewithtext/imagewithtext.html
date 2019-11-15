@@ -1,0 +1,20 @@
+<sly data-sly-use.model="com.aem.training.models.ImageWithText"/>
+<div id="body">
+				<ul>
+                    <li>
+						<h1>${model.itemtype}</h1>
+                        <p>${model.itemtext}</p>
+					</li>
+
+
+                    <sly data-sly-list="${model.promultiItems}">
+                    <li>
+                    <img src="${item.image}" alt="">
+						<h2>${item.itemname}</h2>
+                        </li>
+                       </sly>
+
+
+				</ul>
+
+            </div>

@@ -1,0 +1,10 @@
+<div data-sly-use.blog="multi.js">
+    <h4>Composite Multifield Values: </h4>
+    <ol data-sly-list.product="${blog.node.listChildren}">
+      <li>
+          
+          <img src="${product.linkURL}" alt="${product.alttext}">
+          ${product.imagetitle}
+      </li>
+    </ol>
+</div>
